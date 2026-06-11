@@ -24,10 +24,14 @@ def registrarT():
     tripulantes.append(novoT)
     print("Tripulante inserido com sucesso! 🚀")
 
+def tirarT():
+    tripulantes.pop()
+    print("Último tripulante retirado com sucesso!")
+
 print("\n--- Nave da Bola ---")
 print("\nBem vindo ao menu interativo da nave. Por favor selecione uma opção: ")
 while True:
-    print("\n1- Mostrar status da nave | 2- Viajar | 3- Abastecer | 4- Novo tripulante | 5- Sair")
+    print("\n1- Mostrar status da nave | 2- Viajar | 3- Abastecer | 4- Novo tripulante | 5- Sair | 6- Tirar último tripulante")
     opçao = input("Escolha: ")
     if (opçao == "1"):
         status()
@@ -40,3 +44,10 @@ while True:
     elif(opçao == "5"):
         print("Viagem encerrada!")
         break
+    elif(opçao =="6"):
+        if len(tripulantes) == 0:
+            print("Nenhum tripulante foi removido porque não há nenhum tripulante")
+        else:
+            tirarT()
+
+## lista.pop() Tira o ultimo elemento da lista
