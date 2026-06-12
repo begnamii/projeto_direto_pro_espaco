@@ -6,33 +6,43 @@ def viajar():
     if len(tripulantes) > 0:
         if combustivel >= 30:
             combustivel = combustivel - 30
-            print("A nave viajou")
+            print("\nA nave viajou")
         else:
-            print("Você está sem combustível suficiente. Abasteça!")
+            print("\nVocê está sem combustível suficiente. Abasteça!")
     else:
-        print("Sem tripulantes suficiente")
+        print("\nSem tripulantes suficiente")
+    travarMenu()
 
 def abastecer():
     global combustivel
     combustivel = 100
-    print("Tanque cheio!⛽")
+    print("\nTanque cheio!⛽")
+    travarMenu()
 
 def status():
-    print("|Status|")
+    print("\n-------- |Status da Nave| --------")
     print(f"A quantidade de combustível é {combustivel}L")
     print(f"Os tripulantes são: {tripulantes}")
+    print("-"*35)
+    travarMenu()
 
 def registrarT():
-    novoT = input("Qual o nome do novo tripulante?: ")
+    novoT = input("\nQual o nome do novo tripulante?: ")
     tripulantes.append(novoT)
     print("Tripulante inserido com sucesso! 🚀")
+    travarMenu()
 
 def tirarT():
     if len(tripulantes) > 0:
         removido = tripulantes.pop()
-        print(f"🧑🏼‍🚀 {removido} foi removido da missão")
+        print(f"\n🧑🏼‍🚀 {removido} foi removido da missão")
     else:
-        print("Ninguém a bordo para remover")
+        print("\nNinguém a bordo para remover")
+    travarMenu()
+
+def travarMenu():
+    input("\nPressione <ENTER> para continuar...")
+
 print("\n--- Nave da Bola ---")
 print("\nBem vindo ao menu interativo da nave. Por favor selecione uma opção: ")
 while True:
@@ -47,11 +57,7 @@ while True:
     elif(opçao == "4"):
         registrarT()
     elif(opçao == "5"):
-        if len(tripulantes) == 0:
-            print("Nenhum tripulante foi removido porque não há nenhum tripulante")
-        else:
-            tirarT()
-        
+        tirarT()
     elif(opçao =="6"):
         print("Viagem encerrada!")
         break
